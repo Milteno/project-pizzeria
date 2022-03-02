@@ -1,0 +1,103 @@
+/* Variables */
+
+$color-dark: #333;
+$color-light: #fff;
+$color-main: #ff6b6b;
+
+$font-header: 'Oswald', sans-serif;
+$font-text: 'Lato', sans-serif;
+
+$font-light: 300;
+$font-normal: 400;
+$font-semibold: 500;
+$font-bold: 700;
+
+$transition: all .3s;
+$radius: 4px;
+
+$base-size: 12px;
+
+/* Mixins */
+
+@mixin btn($btn-bg, $btn-text, $btn-border) {
+  background: $btn-bg;
+  color: $btn-text;
+  border-color: $btn-border;
+  border-radius: $radius;
+  transition: $transition;
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  padding: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+
+  &:hover {
+    background: lighten($btn-bg, 3%);
+  }
+}
+
+@mixin flex($flex-direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin accordion-closed() {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+  max-height: 0;
+  transform: translate(0, 50%);
+}
+
+@mixin accordion-open() {
+  transform: translate(0, 0);
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Helpers */
+
+.no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: rotateX(8deg);
+  }
+
+  83% {
+    transform: rotateX(6deg);
+  }
+
+  92% {
+    transform: rotateX(-3deg);
+  }
+
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}

@@ -1,0 +1,97 @@
+/* Buttons */
+
+.btn-primary {
+  @include btn($color-dark, $color-light, $color-dark);
+}
+
+.btn-secondary {
+  @include btn($color-main, $color-light, $color-main);
+}
+
+.btn-quantity {
+  @include btn($color-dark, $color-light, $color-dark);
+  vertical-align: top;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  font-size: 10px;
+
+  &--lt {
+    @include btn($color-light, $color-main, $color-light);
+    padding: 0;
+    width: 24px;
+    height: 18px;
+    line-height: 16px;
+    font-size: 10px;
+    opacity: 0;
+  }
+}
+
+/* Form elements */
+
+input, select {
+  border: 1px solid $color-dark;
+  border-radius: $radius;
+  padding: $base-size;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: ($base-size * 2);
+  margin-bottom: $base-size;
+  user-select: none;
+
+  label {
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $color-dark;
+    border-radius: $radius;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      width: 9px;
+      height: 5px;
+      border-left: 2px solid $color-dark;
+      border-bottom: 2px solid $color-dark;
+      transform: rotate(-45deg);
+      top: 4px;
+      left: 3px;
+    }
+
+  }
+
+  &:hover input ~ .checkbox__checkmark {
+    content: none;
+  }
+
+  input:checked ~ .checkbox__checkmark:after {
+    display: block;
+  }
+
+  &.checkbox--round {
+    .checkbox__checkmark {
+      border-radius: 50%;
+    }
+
+  }
+
+}

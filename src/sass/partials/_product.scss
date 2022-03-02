@@ -1,0 +1,127 @@
+.product-list {
+  padding: ($base-size * 3) 0;
+}
+
+.product {
+  margin: ($base-size * 0.5) 0;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+
+  &__header {
+    @include flex(row, center, space-between);
+    margin-bottom: ($base-size * 2);
+    font-family: $font-header;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  &__name {
+    position: relative;
+    margin: 0;
+    font-weight: $font-semibold;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    position: absolute;
+    color: $color-main;
+    right: (-$base-size * 5);
+    top: $base-size;
+    font-size: ($base-size * 1.5);
+    transition: $transition;
+  }
+
+  &__base-price {
+    font-weight: $font-light;
+  }
+
+  &__description {
+    color: lighten($color-dark, 10%);
+  }
+
+  &__wrapper {
+    @include flex(row, center, space-between);
+    @include accordion-closed();
+    animation: flipdown 0.5s ease both;
+  }
+
+  &__params {
+    margin: 0 0 ($base-size * 3) 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__params-title {
+    font-size: 14px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    margin: ($base-size * 2) 0;
+  }
+
+  &__order {
+    width: calc(100% - 400px);
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+
+  &__total-price {
+    font-size: 14px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+  }
+
+  &__images {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+    transition: opacity 200ms;
+
+    &.small {
+      width: 220px;
+      height: 220px;
+    }
+
+    > img {
+      @include center();
+      height: auto;
+      opacity: 0;
+      transition: opacity 500ms;
+
+      &.active {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  &.active {
+    .product__wrapper {
+      @include accordion-open();
+    }
+
+    .product__order, .product__images {
+      opacity: 1;
+    }
+
+    .product__icon {
+      transform: rotate(180deg);
+    }
+
+  }
+
+}
+
+.widget-amount {
+  input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 0 ($base-size * 0.5);
+    padding: 0;
+  }
+
+}

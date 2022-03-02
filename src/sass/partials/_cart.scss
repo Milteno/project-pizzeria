@@ -1,0 +1,126 @@
+.cart {
+  position: absolute;
+  width: 270px;
+  right: 0;
+  top: $base-size;
+  padding: ($base-size) ($base-size * 1.5);
+  background: $color-light;
+  border-radius: $radius;
+  color: $color-main;
+  font-size: $base-size;
+  box-shadow: 0 0 $base-size rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+
+  &.active {
+    .cart__content {
+      @include accordion-open();
+      padding: ($base-size * 1.5) 0 0 0;
+    }
+
+  }
+
+  &__summary {
+    @include flex(row, center, space-between);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__icon {
+    font-size: ($base-size * 2);
+  }
+
+  &__total-number {
+    background: $color-main;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: $color-light;
+    text-align: center;
+    line-height: 28px;
+  }
+
+  &__total-price {
+    color: $color-dark;
+  }
+
+  &__content {
+    @include accordion-closed();
+    opacity: 0;
+    animation: flipdown 0.5s ease both;
+    color: $color-dark;
+  }
+
+  &__order-summary {
+    li {
+      @include flex(row, center, space-between);
+    }
+
+    .widget-amount {
+      @include flex(column-reverse, center, space-between);
+      margin: 0 $base-size 0 0;
+
+      input {
+        margin: 0;
+        width: ($base-size * 2);
+        height: ($base-size * 2);
+      }
+
+      &:hover .btn-quantity--lt {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  &__product-name {
+    width: 150px;
+  }
+
+  &__action-buttons {
+    @include flex(row, center, space-between);
+    font-size: 0;
+
+    i {
+      font-size: 14px;
+    }
+
+    li {
+      margin: 0 0 0 $base-size;
+    }
+
+    a {
+      color: $color-main;
+
+      &:hover {
+        color: lighten($color-main, 3%);
+      }
+
+    }
+
+  }
+
+  &__order-price {
+    margin: 0;
+    padding: $base-size 0;
+    list-style-type: none;
+    border-top: 1px solid lighten($color-dark, 70%);
+
+    li {
+      @include flex(row, center, space-between);
+    }
+
+  }
+
+  &__order-confirmation {
+    border-top: 1px solid lighten($color-dark, 70%);
+    padding: $base-size 0 0 0;
+
+    input, button {
+      width: 100%;
+      margin-bottom: ($base-size * 0.5);
+    }
+
+  }
+
+}

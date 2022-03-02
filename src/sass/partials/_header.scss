@@ -1,0 +1,36 @@
+.header {
+  padding: ($base-size * 5) 0;
+  background: $color-dark;
+  color: $color-light;
+
+  &__wrapper {
+    position: relative;
+  }
+
+}
+
+.logo {
+  display: inline-block;
+  line-height: 1;
+
+  &__title {
+    margin: 0 0 $base-size 0;
+    font-size: ($base-size * 4);
+    font-family: $font-header;
+    font-weight: $font-light;
+    text-transform: uppercase;
+
+    span {
+      font-weight: $font-bold;
+    }
+
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: ($base-size * 1.5);
+    font-weight: $font-light;
+    font-style: italic;
+  }
+
+}

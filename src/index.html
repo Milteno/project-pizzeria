@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pizzeria</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="logo">
+          <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
+          <h2 class="logo__subtitle">the best homemade Italian food</h2>
+        </div>
+        <div id="cart" class="cart">
+          <div class="cart__summary">
+            <span class="cart__total-number">0</span>
+            <span class="cart__total-price">Total price: <strong>$0</strong></span>
+            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-shopping-cart cart__icon"></i>
+          </div>
+          <div class="cart__content">
+            <form class="cart__order">
+              <ul class="cart__order-summary no-spacing">
+              </ul>
+              <ul class="cart__order-price">
+                <li>
+                  <span class="cart__order-price-name">Subtotal:</span>
+                  <span class="cart__order-price-sum">$0</span>
+                </li>
+                <li>
+                  <span class="cart__order-price-name">Delivery:</span>
+                  <span class="cart__order-price-sum">$0</span>
+                </li>
+                <li>
+                  <span class="cart__order-price-name"><strong>Total:</strong></span>
+                  <span class="cart__order-price-sum"><strong>$0</strong></span>
+                </li>
+              </ul>
+              <div class="cart__order-confirmation">
+                <input type="tel" name="phone" placeholder="Your phone">
+                <input type="text" name="address" placeholder="Your address">
+                <button type="submit" class="btn-secondary">Order</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div id="product-list" class="product-list container"></div>
+
+    <script id="template-menu-product" type="text/x-handlebars-template">
+      <article class="product active"> <!-- product -->
+
+          <header class="product__header">
+            <h3 class="product__name no-spacing">{{ name }} <i class="fas fa-chevron-down product__icon"></i></h3>
+            <p class="product__base-price no-spacing">${{ price }}</p>
+          </header>
+          <div class="product__description"> <!-- description -->
+            <p>{{{ description }}}</p>
+          </div> <!-- .description -->
+          <div class="product__wrapper"> <!-- details -->
+            <form class="product__order">
+              <ul class="product__params"> <!-- params -->
+                {{#each params as |param paramId| }}
+                {{#ifEquals type "checkboxes"}}
+                <li> <!-- checkboxes -->
+                  <h3 class="product__params-title">{{{ label }}}</h3>
+                  {{#each options}}
+                  <div class="checkbox"> <!-- checkbox -->
+                    <label>
+                      <input type="checkbox" name="{{ paramId }}" value="{{ @key }}" id="{{ @key }}" {{#if default}}checked{{/if}}>
+                      <span class="checkbox__checkmark"></span>
+                      {{{ label }}} (${{{ price }}})
+                    </label>
+                  </div>
+                  {{/each}}
+                </li>
+                {{/ifEquals}}
+                {{#ifEquals type "radios"}}
+                <li> <!-- radios -->
+                  <h3 class="product__params-title">{{{ label }}}</h3>
+                  {{#each options}}
+                  <div class="checkbox checkbox--round"> <!-- radio -->
+                    <label>
+                      {{{ label }}} (${{{ price }}})
+                      <input type="radio" name="{{ paramId }}" value="{{ @key }}" id="{{ @key }}" {{#if default}}checked{{/if}}>
+                      <span class="checkbox__checkmark"></span>
+                    </label>
+                  </div>
+                  {{/each}}
+                </li>
+                {{/ifEquals}}
+                {{#ifEquals type "select"}}
+                <li> <!-- select -->
+                  <h3 class="product__params-title">{{{ label }}}</h3>
+                  <select name="{{ paramId }}">
+                    {{#each options}}
+                    <option value="{{ @key }}" {{#if default}}selected{{/if}}>{{{ label }}} (${{{ price }}})</option>
+                    {{/each}}
+                  </select>
+                </li>
+                {{/ifEquals}}
+                {{/each}}
+              </ul>
+              <div class="amount"> <!-- controls -->
+                <div class="widget-amount"> <!-- widget-amount -->
+                  <h3 class="product__params-title">Select quantity</h3>
+                  <a class="btn-quantity" href="#less"><i class="fas fa-minus"></i></a>
+                  <input type="text" name="amount" value="1">
+                  <a class="btn-quantity" href="#more"><i class="fas fa-plus"></i></a>
+                </div>
+                <p class="product__total-price">
+                  Total: $<span class="price">{{{ price }}}</span>
+                </p>
+                <div> <!-- add-to-cart -->
+                  <a class="btn-primary" href="#add-to-cart">Add to cart</a>
+                </div>
+              </div>
+            </form>
+            <div class="product__images {{ class }}"> <!-- images -->
+              {{#each images}}
+              {{{ this }}}
+              {{/each}}
+            </div>
+          </div>
+
+      </article> <!-- .product -->
+    </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
