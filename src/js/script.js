@@ -137,19 +137,19 @@
           console.log(thisProduct);
           const temp = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
           if(formData[paramId].includes(optionId) && temp != null) {
-            if(option[Object.keys(option)[2]]!=true) {
+            if(option.default!=true) {
               price += option[Object.keys(option)[1]];
               temp.classList.add('active');
             }
-            else if(option[Object.keys(option)[2]]==true) {
+            else if(option.default==true) {
               temp.classList.add('active');
             }
           }
           else if(!formData[paramId].includes(optionId) && temp != null) {
-            if(option[Object.keys(option)[2]]!=true) {
+            if(option.default!=true) {
               temp.classList.remove('active');
             }
-            else if(option[Object.keys(option)[2]]==true) {
+            else if(option.default==true) {
               price -= option[Object.keys(option)[1]];
               temp.classList.remove('active');
             }
