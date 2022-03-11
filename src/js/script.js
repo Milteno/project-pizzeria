@@ -79,6 +79,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
     initAccordion() {
       const thisProduct = this;
@@ -133,16 +134,28 @@
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          if(formData[paramId].includes(optionId) && option[Object.keys(option)[2]]!=true) {
-            price += option[Object.keys(option)[1]];
-            console.log(price);
+          console.log(thisProduct);
+          const temp = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          if(formData[paramId].includes(optionId) && temp != null) {
+            if(option[Object.keys(option)[2]]!=true) {
+              price += option[Object.keys(option)[1]];
+              temp.classList.add('active');
+            }
+            else if(option[Object.keys(option)[2]]==true) {
+              temp.classList.add('active');
+            }
           }
-          else if(!formData[paramId].includes(optionId) && option[Object.keys(option)[2]]==true) {
-            price -= option[Object.keys(option)[1]];
+          else if(!formData[paramId].includes(optionId) && temp != null) {
+            if(option[Object.keys(option)[2]]!=true) {
+              temp.classList.remove('active');
+            }
+            else if(option[Object.keys(option)[2]]==true) {
+              price -= option[Object.keys(option)[1]];
+              temp.classList.remove('active');
+            }
           }
           console.log('+' + optionId, option);
         }
-
       }
 
       // update calculated price in the HTML
