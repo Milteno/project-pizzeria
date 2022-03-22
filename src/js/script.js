@@ -98,8 +98,6 @@
           }
         }
 
-
-        /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle('active');
       });
     }
@@ -127,38 +125,33 @@
       console.log('formData ' + Object.values(formData));
       let price = thisProduct.data.price;
       for(let paramId in thisProduct.data.params) {
-        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
         console.log('++' + paramId, param);
-        // for every option in this category
         for(let optionId in param.options) {
-          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
           console.log(thisProduct);
-          const temp = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
-          if(formData[paramId].includes(optionId) && temp != null) {
+          const imageWrapperSelector = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          if(formData[paramId].includes(optionId) && imageWrapperSelector != null) {
             if(option.default!=true) {
-              price += option[Object.keys(option)[1]];
-              temp.classList.add('active');
+              price += option.price;
+              imageWrapperSelector.classList.add('active');
             }
-            else if(option.default==true) {
-              temp.classList.add('active');
+            else {
+              imageWrapperSelector.classList.add('active');
             }
           }
-          else if(!formData[paramId].includes(optionId) && temp != null) {
+          else if(!formData[paramId].includes(optionId) && imageWrapperSelector != null) {
             if(option.default!=true) {
-              temp.classList.remove('active');
+              imageWrapperSelector.classList.remove('active');
             }
-            else if(option.default==true) {
-              price -= option[Object.keys(option)[1]];
-              temp.classList.remove('active');
+            else {
+              price -= option.price;
+              imageWrapperSelector.classList.remove('active');
             }
           }
           console.log('+' + optionId, option);
         }
       }
-
-      // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
   }
