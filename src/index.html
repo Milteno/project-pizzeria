@@ -21,7 +21,7 @@
         <div id="cart" class="cart">
           <div class="cart__summary">
             <span class="cart__total-number">0</span>
-            <span class="cart__total-price">Total price: <strong>$0</strong></span>
+            <span class="cart__total-price">Total price: $<strong>0</strong></span>
             <i class="fas fa-chevron-down"></i>
             <i class="fas fa-shopping-cart cart__icon"></i>
           </div>
@@ -30,17 +30,17 @@
               <ul class="cart__order-summary no-spacing">
               </ul>
               <ul class="cart__order-price">
-                <li>
+                <li class="cart__order-subtotal">
                   <span class="cart__order-price-name">Subtotal:</span>
-                  <span class="cart__order-price-sum">$0</span>
+                  <span class="cart__order-price-sum">$<strong>0</strong></span>
                 </li>
-                <li>
+                <li class="cart__order-delivery">
                   <span class="cart__order-price-name">Delivery:</span>
-                  <span class="cart__order-price-sum">$0</span>
+                  <span class="cart__order-price-sum">$<strong>0</strong></span>
                 </li>
-                <li>
+                <li class="cart__order-total">
                   <span class="cart__order-price-name"><strong>Total:</strong></span>
-                  <span class="cart__order-price-sum"><strong>$0</strong></span>
+                  <span class="cart__order-price-sum">$<strong>0</strong></span>
                 </li>
               </ul>
               <div class="cart__order-confirmation">
@@ -56,8 +56,10 @@
   </header>
 
     <div id="product-list" class="product-list container"></div>
-
     <script id="template-menu-product" type="text/x-handlebars-template">
+
+    </script>
+    <script id="template-cart-product" type="text/x-handlebars-template">
       <article class="product"> <!-- product -->
 
           <header class="product__header">
@@ -115,7 +117,7 @@
                 <div class="widget-amount"> <!-- widget-amount -->
                   <h3 class="product__params-title">Select quantity</h3>
                   <a class="btn-quantity" href="#less"><i class="fas fa-minus"></i></a>
-                  <input type="text" name="amount">
+                  <input type="text" class="amount">
                   <a class="btn-quantity" href="#more"><i class="fas fa-plus"></i></a>
                 </div>
                 <p class="product__total-price">
