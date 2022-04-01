@@ -56,10 +56,34 @@
   </header>
 
     <div id="product-list" class="product-list container"></div>
-    <script id="template-menu-product" type="text/x-handlebars-template">
-
-    </script>
     <script id="template-cart-product" type="text/x-handlebars-template">
+      <li>
+        <div class="widget-amount"> <!-- widget-amount -->
+          <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
+          <input class="amount" type="text" value="{{ amount }}">
+          <a class="btn-quantity btn-quantity--lt" href="#more"><i class="fas fa-plus"></i></a>
+        </div>
+        <div class="cart__product">
+          <div class="cart__product-header">
+            <span>{{ name }}</span>
+            <span>$<strong class="cart__product-price">{{ price }}</strong></span>
+          </div>
+          <ul class="cart__product-details no-spacing">
+            {{#each params}}
+              <li>
+                <span class="cart__product-details-label">{{ label }}</span>
+                <span>{{#joinValues options}}, {{/joinValues}}</span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <ul class="cart__action-buttons no-spacing">
+          <li><a href="#edit">Edit<i class="fas fa-pencil-alt"></i></a></li>
+          <li><a href="#remove">Remove<i class="fas fa-trash-alt"></i></a></li>
+        </ul>
+      </li>
+    </script>
+    <script id="template-menu-product" type="text/x-handlebars-template">
       <article class="product"> <!-- product -->
 
           <header class="product__header">
