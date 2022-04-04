@@ -338,7 +338,7 @@
       console.log('subtotalPrice: ', subTotalPrice);
       console.log('thisCart.totalPrice: ', thisCart.totalPrice);
 
-      if(totalNumber != 0) {
+      if(totalNumber !== 0) {
         thisCart.dom.subtotalPrice.innerHTML = subTotalPrice;
         thisCart.dom.deliveryFee.innerHTML = deliveryFee;
         for(let totalPrice of thisCart.dom.totalPrice) {
