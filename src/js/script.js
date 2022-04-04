@@ -345,10 +345,18 @@
           totalPrice.innerHTML = thisCart.totalPrice;
         }
       }
+      else {
+        thisCart.dom.deliveryFee.innerHTML = 0;
+        thisCart.dom.subtotalPrice.innerHTML = 0;
+        for (let totalPrice of thisCart.dom.totalPrice) {
+          totalPrice.innerHTML = 0;
+        }
+      }
     }
     remove(product) {
       const thisCart = this;
       const htmlToRemove = thisCart.products.indexOf(CartProduct);
+      console.log('rekord usuniety: ' + htmlToRemove);
       product.dom.wrapper.remove();
       thisCart.products.splice(htmlToRemove, 1);
       thisCart.update();
