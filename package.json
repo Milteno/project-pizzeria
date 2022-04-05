@@ -20,8 +20,9 @@
         "build:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
         "build-dev": "npm-run-all build-dev:sass build:autoprefixer",
         "build-dev:sass": "sass --style=expanded --source-map src/sass:dist/css",
-        "watch": "npm-run-all build build-dev -p watch:*",
-        "watch:browsersync": "browser-sync start --server dist --files \"dist/**/*\"",
+        "server": "json-server --port 3131 --no-cors --delay 250 --watch dist/db/app.json",
+        "watch": "npm-run-all build build-dev -p watch:* server",
+        "watch:browsersync": "browser-sync start --server dist --files \"dist/**/*\" --ignore \"dist/db/**/*\"",
         "watch:sassprefixer": "onchange \"src/sass/**/*.scss\" -- npm run build-dev",
         "watch:copy": "onchange -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" -- copyfiles -a -u 1 {{changed}} dist"
     },
@@ -44,5 +45,8 @@
         "sass": "^1.44.0",
         "stylelint": "^9.10.1",
         "stylelint-scss": "^3.5.4"
+    },
+    "dependencies": {
+        "json-server": "^0.17.0"
     }
 }
