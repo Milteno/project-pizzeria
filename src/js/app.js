@@ -30,7 +30,6 @@ const app = {
 
         thisApp.activatePage(id);
 
-        //window.location.hash = '#/' + id;
       });
     }
   },
