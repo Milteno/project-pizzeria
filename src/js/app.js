@@ -10,7 +10,6 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
     const idFromHash = window.location.hash.replace('#/', '');
 
-    // eslint-disable-next-line no-unused-vars
     let pageMatchingHash = thisApp.pages[0].id;
 
     for(let page of thisApp.pages) {
@@ -19,7 +18,9 @@ const app = {
         break;
       }
     }
-    thisApp.activatePage(idFromHash);
+
+    thisApp.activatePage(pageMatchingHash);
+
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function(event){
         const clickedElement = this;
@@ -29,7 +30,7 @@ const app = {
 
         thisApp.activatePage(id);
 
-        window.location.hash = '#/' + id;
+        //window.location.hash = '#/' + id;
       });
     }
   },
@@ -46,6 +47,7 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
+    window.location.hash = '#/' + pageId;
 
   },
   initMenu: function(){
