@@ -1,5 +1,5 @@
 .header {
-  padding: ($base-size * 5) 0;
+  padding: ($base-size * 5) 0 ($base-size * 8) 0;
   background: $color-dark;
   color: $color-light;
 
@@ -31,6 +31,30 @@
     font-size: ($base-size * 1.5);
     font-weight: $font-light;
     font-style: italic;
+  }
+
+}
+
+.main-nav {
+  position: absolute;
+  @include flex(row, flex-start, flex-start);
+  bottom: ($base-size * -8);
+
+  a {
+    @extend .h2;
+    color: $color-main;
+    text-decoration: none;
+    margin-right: ($base-size * 2);
+    text-align: center;
+    padding: $base-size ($base-size * 2);
+    background: darken($color-dark, 5%);
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+
+    &.active {
+      background: lighten($color-dark, 75%);
+    }
+
   }
 
 }

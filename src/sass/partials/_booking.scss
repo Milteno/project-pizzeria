@@ -1,0 +1,200 @@
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
+.booking-widget {
+  transform: opacity 500ms;
+
+  &.loading {
+    opacity: 0.25;
+  }
+}
+
+.booking-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.booking-option-title {
+  @extend .h2;
+  display: block;
+  margin: 0 0 ($base-size * 2) 0;
+
+  > .widget-amount {
+    margin: ($base-size * 2) 0 0 0;
+  }
+
+}
+
+.page__title {
+  @extend .h1;
+  margin: 0 0 ($base-size * 4) 0;
+  text-align: center;
+}
+
+.time-picker {
+  @include flex(row, flex-start, space-between);
+  margin: 0 0 ($base-size * 4) 0;
+}
+
+.hour-picker {
+  position: relative;
+  width: 50%;
+
+  .output {
+    position: absolute;
+    right: 0;
+  }
+
+}
+
+.rangeSlider {
+  top: $base-size;
+  background: lighten($color-dark, 70%);
+  box-shadow: none;
+  height: $base-size;
+
+  &__handle {
+    box-shadow: none;
+    border: 0;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: transform 100ms;
+
+    &::after {
+      display: none;
+    }
+
+    &__horizontal {
+      width: ($base-size * 2);
+      height: ($base-size * 2);
+      top: -6px;
+      background: $color-dark;
+    }
+
+  }
+
+  &__fill {
+    background: $color-success;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: width 100ms;
+    box-shadow: none;
+  }
+}
+
+.flatpickr-day {
+  &.disabled {
+    color: lighten($color-dark, 60%);
+  }
+}
+
+.floor-plan {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border: 12px solid $color-dark;
+  margin: ($base-size * 4) auto;
+  background: linear-gradient(to right, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+  background-size: ($base-size * 3);
+  background-repeat: repeat;
+
+  > * {
+    position: absolute;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .object {
+    @extend .h3;
+    background: #f7f1e3;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  }
+
+  .entry {
+    bottom: -24px;
+    left: 50%;
+    width: 100px;
+    height: 18px;
+    line-height: 17px;
+    transform: translate(-50%, -50%);
+    box-shadow: none;
+    background: #ede3c8;
+    border: 1px solid $color-dark;
+    border-width: 0 6px 0 6px;
+  }
+
+  .bar {
+    left: 0;
+    bottom: 50px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .table {
+    @extend .h2;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    cursor: pointer;
+
+    &--round {
+      border-radius: 50%;
+
+      &::after {
+        border-radius: 50%;
+      }
+
+    }
+
+    &.booked {
+      cursor: not-allowed;
+      color: lighten($color-dark, 40%);
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $color-dark;
+        opacity: 0.4;
+      }
+
+    }
+  }
+
+  [data-table="1"] {
+    left: 40px;
+    top: 40px;
+  }
+
+  [data-table="2"] {
+    right: 25px;
+    top: 25px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  [data-table="3"] {
+    right: 40px;
+    top: 180px;
+  }
+}
+
+.booking-options {
+  @include flex(row, flex-start, space-between);
+  margin: ($base-size * 4) auto;
+}

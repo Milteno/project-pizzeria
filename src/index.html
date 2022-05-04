@@ -18,6 +18,10 @@
           <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
+        <div class="main-nav">
+          <a href="#order">Order</a>
+          <a href="#booking">Booking</a>
+      </div>
         <div id="cart" class="cart">
           <div class="cart__summary">
             <span class="cart__total-number">0</span>
@@ -55,7 +59,14 @@
     </div>
   </header>
 
-    <div id="product-list" class="product-list container"></div>
+    <div id="pages">
+      <section id="order">
+        <div id="product-list" class="product-list container"></div>
+      </section>
+      <section id="booking">
+        <div class="booking-wrapper container"></div>
+      </section>
+    </div>
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
         <div class="widget-amount"> <!-- widget-amount -->
@@ -160,6 +171,72 @@
           </div>
 
       </article> <!-- .product -->
+    </script>
+
+    <script id="template-booking-widget" type="text/x-handlebars-template">
+      <div class="booking-widget">
+        <h2 class="page__title no-spacing">Book a table</h2>
+        <form class="booking-form">
+          <div class="time-picker">
+            <div class="date-picker">
+              <label class="booking-option-title">Pick a date</label>
+              <input type="text" name="date">
+            </div>
+            <div class="hour-picker range-slider">
+                <div class="output"></div>
+                <label class="booking-option-title">Pick a time</label>
+              <input type="range" name="hour" value="12" min="12" max="24" step="0.5">
+            </div>
+          </div>
+          <div class="floor-plan">
+            <div class="object entry">entry</div>
+            <div class="object bar">bar</div>
+            <div class="object table" data-table="1">table-1</div>
+            <div class="object table table--round" data-table="2">table-2</div>
+            <div class="object table" data-table="3">table-3</div>
+          </div>
+          <div class="booking-options"> <!-- options -->
+            <label class="booking-option-title"> <!-- option-row -->
+              People
+              <div class="widget-amount people-amount"> <!-- widget-amount -->
+                <a class="btn-quantity" href="#less"><i class="fas fa-minus"></i></a>
+                <input class="amount" type="text" name="people" value="1">
+                <a class="btn-quantity" href="#more"><i class="fas fa-plus"></i></a>
+              </div>
+            </label>
+            <label class="booking-option-title"> <!-- option-row -->
+              Hours
+              <div class="widget-amount hours-amount"> <!-- widget-amount -->
+                <a class="btn-quantity" href="#less"><i class="fas fa-minus"></i></a>
+                <input class="amount" type="text" name="hours" value="1">
+                <a class="btn-quantity" href="#more"><i class="fas fa-plus"></i></a>
+              </div>
+            </label>
+            <div> <!-- option-row -->
+              <span class="booking-option-title">Starters</span>
+              <div class="checkbox"> <!-- checkbox -->
+                <label>
+                  <input type="checkbox" name="starter" value="water">
+                  <span class="checkbox__checkmark"></span>
+                  Water
+                </label>
+              </div>
+              <div class="checkbox"> <!-- checkbox -->
+                <label>
+                  <input type="checkbox" name="starter" value="bread">
+                  <span class="checkbox__checkmark"></span>
+                  Bread
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="order-confirmation">
+            <input type="tel" name="phone" placeholder="Your phone">
+            <input type="text" name="address" placeholder="Your address">
+            <button type="submit" class="btn-secondary">Book table</button>
+          </div>
+        </form>
+      </div>
     </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>

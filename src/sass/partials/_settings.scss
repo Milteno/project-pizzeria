@@ -17,6 +17,10 @@ $radius: 4px;
 
 $base-size: 12px;
 
+$color-warning: #f6b93b;
+$color-danger: #e55039;
+$color-success: #78e08f;
+
 /* Mixins */
 
 @mixin btn($btn-bg, $btn-text, $btn-border) {
