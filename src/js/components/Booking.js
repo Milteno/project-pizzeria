@@ -35,28 +35,28 @@ class Booking {
     };
     console.log('Params',params);
     const urls = {
-      booking: settings.db.url+'/'+ settings.db.bookings+'?'+params.booking.join('&'),
+      bookings: settings.db.url+'/'+ settings.db.bookings+'?'+params.booking.join('&'),
       eventsCurrent: settings.db.url+'/'+ settings.db.events+'?'+params.eventsCurrent.join('&'),
       eventsRepeat: settings.db.url+'/'+ settings.db.events+'?'+params.eventsRepeat.join('&'),
     };
-    /*  Promise.all([
-      fetch(urls.booking),
+    Promise.all([
+      fetch(urls.bookings),
     ]).then(function(allResponses){
       const bookingsResponse = allResponses[0];
       return Promise.all([
         bookingsResponse.json(),
       ]);
     }).then(function([bookings]){
-      console.log('lul', bookings);
-    });*/
+      console.log('bookings', bookings);
+    });
     console.log('Urls',urls);
-    fetch(urls.booking)
+    /*fetch(urls.bookings)
       .then(function(bookingsResponse){
         return bookingsResponse.json();
       })
       .then(function(bookings){
         console.log(bookings);
-      });
+      }); */
   }
   render(element) {
     const thisBooking = this;
