@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.html",
+    "type": "module",
     "scripts": {
         "init-project": "npm install && npm-run-all init:*",
         "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js",
