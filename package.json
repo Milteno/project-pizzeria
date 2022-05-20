@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.html",
-    "type": "module",
     "scripts": {
         "init-project": "npm install && npm-run-all init:*",
         "init:dirs": "mkdirp dist src/sass src/css src/vendor src/images src/js",
@@ -48,6 +47,7 @@
         "stylelint-scss": "^3.5.4"
     },
     "dependencies": {
-        "json-server": "^0.17.0"
+        "json-server": "^0.17.0",
+        "rangeslider-pure": "^0.4.11"
     }
 }
