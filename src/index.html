@@ -21,6 +21,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
       </div>
@@ -62,6 +63,9 @@
   </header>
 
     <div id="pages">
+      <section id="home">
+        <div class="home-wrapper container"></div>
+      </section>
       <section id="order">
         <div id="product-list" class="product-list container"></div>
       </section>
@@ -69,6 +73,21 @@
         <div class="booking-wrapper container"></div>
       </section>
     </div>
+    <script id="template-home-page" type="text/x-handlebars-template">
+      <div class="row">
+        <div class="col-50 order-online move-up">
+          <h1>order online</h1>
+        </div>
+        <div class="col-50 book-a-table move-up">
+          <h1>book a table</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-100 opening-hours move-up">
+          <h1>opening hours:</h1>
+        </div>
+      </div>
+    </script>
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
         <div class="widget-amount"> <!-- widget-amount -->
@@ -174,7 +193,6 @@
 
       </article> <!-- .product -->
     </script>
-
     <script id="template-booking-widget" type="text/x-handlebars-template">
       <div class="booking-widget">
         <h2 class="page__title no-spacing">Book a table</h2>
