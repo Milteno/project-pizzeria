@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -75,18 +76,42 @@
     </div>
     <script id="template-home-page" type="text/x-handlebars-template">
       <div class="row">
-        <div class="col-50 order-online move-up">
-          <h1>order online</h1>
-        </div>
+          <div class="col-50 order-online move-up">
+            <h1>order online</h1>
+            <span>Delicious food delivered to your door</span>
+            <a href="#order"></a>
+          </div>
         <div class="col-50 book-a-table move-up">
           <h1>book a table</h1>
+          <span>Plan your booking</span>
+          <a href="#booking"></a>
         </div>
       </div>
       <div class="row">
-        <div class="col-100 opening-hours move-up">
+        <div class="col-100 opening-hours">
           <h1>opening hours:</h1>
+          <span>MON-SUN, 12PM - 11PM</span>
         </div>
       </div>
+
+      <div class="main-carousel" data-flickity='{ "lazyLoad": true,  "contain": true, "pageDots": false }'>
+        <div class="carousel-cell">
+          <img class=""
+            data-flickity-lazyload="images/assets/pizza-3.jpg" alt="tulip" />
+            <h1>ahudaaqwd</h1>
+            <span>asdasads</span>
+        </div>
+        <div class="carousel-cell">
+          <img class=""
+            data-flickity-lazyload="images/assets/pizza-3.jpg" alt="grapes" />
+        </div>
+        <div class="carousel-cell">
+          <img class=""
+            data-flickity-lazyload="images/assets/pizza-3.jpg" alt="raspberries" />
+        </div>
+      </div>
+
+
     </script>
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
@@ -258,6 +283,7 @@
         </form>
       </div>
     </script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="vendor/range-slider.min.js"></script>

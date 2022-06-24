@@ -30,7 +30,6 @@
   width: 100%;
   height: 119px;
   position: relative;
-  transition: transform 1s;
   float: left;
   background-position: center center;
   background-size: cover;
@@ -48,15 +47,62 @@
   background-color: #ff6b6b;
 }
 
-.home-wrapper h1 {
+.col-50 h1 {
   position: relative;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   margin: 0 auto;
   top: 40%;
-}
-.move-up:hover h1 {
-  transform: translateY(-100%);
   transition: transform 1s;
 }
+
+.move-up:hover h1 {
+  transform: translateY(-80%);
+  transition: transform 1s;
+}
+
+.col-50 span {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 0;
+  transition: ease 1s;
+  overflow: hidden;
+}
+
+.col-50:hover span {
+  height: 40%;
+}
+
+.col-50 a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.opening-hours {
+  padding-top: 5%;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.opening-hours h1 {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.opening-hours span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
