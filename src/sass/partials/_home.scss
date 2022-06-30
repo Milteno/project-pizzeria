@@ -109,9 +109,10 @@
 .carousel {
   background: #EEE;
 }
+
 .main-carousel {
-  margin:4rem 2rem;
-  padding-bottom:2rem;
+  margin: 4rem 2rem;
+  padding-bottom: 2rem;
 }
 
 .carousel-cell {
@@ -120,11 +121,12 @@
   margin-right: 10px;
   border-radius: 5px;
   counter-increment: gallery-cell;
-  display:flex;
+  display: flex;
 }
+
 .carousel-image {
-  width:50%;
-  float:left;
+  width: 50%;
+  float: left;
 }
 
 /* cell number */
@@ -145,8 +147,6 @@
 .carousel-text span {
   font-style: italic;
 }
-
-
 
 .gallery {
   height: auto;
@@ -176,7 +176,7 @@
 
 .icon-center i{
   margin: auto auto;
-  color:#ffffff;
+  color: #ffffff;
 
 }
 
@@ -226,7 +226,7 @@
 
 .gallery-content:hover i { /* when link is hovered select i */
   visibility: visible;
-  color:#ff6b6b;
+  color: #ff6b6b;
   transform: scale(1);
 }
 
