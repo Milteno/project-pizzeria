@@ -106,3 +106,130 @@
   margin: 0 auto;
 }
 
+.carousel {
+  background: #EEE;
+}
+.main-carousel {
+  margin:4rem 2rem;
+  padding-bottom:2rem;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: 200px;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+  display:flex;
+}
+.carousel-image {
+  width:50%;
+  float:left;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel-text {
+  margin: 0 5%;
+  width: 50%;
+  float: left;
+}
+
+.carousel-text span {
+  font-style: italic;
+}
+
+
+
+.gallery {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-content {
+  position: relative;
+  transition: transform 1s;
+  float: left;
+  width: 33.33333%;
+  height: 20vh;
+  background-position: center center;
+  background-size: cover;
+  margin: 0.2rem;
+  z-index: 1;
+}
+
+.icon-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+.icon-center i{
+  margin: auto auto;
+  color:#ffffff;
+
+}
+
+.gallery-content:hover::before {
+  position: absolute;
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.gallery-content a {
+  z-index: 10;
+}
+
+.gallery-img1 {
+  background-image: url(../images/assets/pizza-4.jpg);
+}
+
+.gallery-img2 {
+  background-image: url(../images/assets/pizza-5.jpg);
+}
+
+.gallery-img3 {
+  background-image: url(../images/assets/pizza-6.jpg);
+}
+
+.gallery-img4 {
+  background-image: url(../images/assets/pizza-7.jpg);
+}
+
+.gallery-img5 {
+  background-image: url(../images/assets/pizza-8.jpg);
+}
+
+.gallery-img6 {
+  background-image: url(../images/assets/pizza-9.jpg);
+}
+
+.gallery-content i { /* in all other case hide it */
+  visibility: hidden;
+  margin: 0.2rem;
+  transform: scale(0.1);
+  transition: 1s;
+}
+
+.gallery-content:hover i { /* when link is hovered select i */
+  visibility: visible;
+  color:#ff6b6b;
+  transform: scale(1);
+}
+
+.gallery-content a:hover i { /* in all other case hide it */
+  color: red;
+}
